@@ -1,6 +1,6 @@
-/**
+﻿/**
  * @file tri_isa.cpp
- * @author 
+ * @author GIRARD Laurent et LE FALHUN Mattis
  * @date 
  * @brief 
 **/
