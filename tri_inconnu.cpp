@@ -1,3 +1,4 @@
+﻿// VIOL
 /**
  * @file tri_inconnu.cpp
  * @brief Programme implémentant un mystérieux algorithme de tri ...
