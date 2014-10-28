@@ -112,6 +112,21 @@ void afficher_tab(TabEntier T)
 	}
 	cout << endl;
 }
+
+// Fonction permettant de savoir si l'entier k est dans le tableau T
+bool is_in_tab(TabEntier T, int k)
+{
+	bool is_in;
+	is_in = false;
+	for (int i = 0; i < N; ++i)
+	{
+		if(T[i] == k)
+		{
+			is_in = true;
+		}
+	}
+	return is_in;
+} 
 /*
 *********************
 *****  Partie 2 *****
@@ -138,7 +153,15 @@ void afficher_tab(TabEntier T)
 **/
 void TriSelection (TabEntier & T)
 {
-	unsigned i, j, min;
+
+	unsigned i, j, k, min;
+
+	TabEntier t_debut;
+	for (int k = 0; k < N; ++k)
+	{
+		t_debut[k] = T[k];
+	}
+
 
 	for (i = 0; i < N; ++i)
 	{
@@ -151,17 +174,37 @@ void TriSelection (TabEntier & T)
 				min = j;
 			}
 		}
-		assert(1 == 2);
+
 		if(min != i)
 		{
 			permuter(T, min, i);
 		}
 	}
+	
 	// Post-conditions
 		// 1ère Post-condition
-
-	//bool post_cond_select = (  );
-	
+	bool post_cond_select = ( N == sizeof(T)/sizeof(T[0]) );
+		// 2ème condition
+	unsigned int z;
+	for(z = 0; z < N-1; z++)
+	{
+		if(T[z+1] < T[z])
+		{
+			post_cond_select = false;
+		}
+	}
+		// 3ème condition
+	unsigned int y;
+	for (int y = 0; y < N; ++y)
+	{
+		if(!is_in_tab(t_debut, T[y]))
+		{
+			post_cond_select = false;
+		}
+	}
+	//afficher_tab(t_debut);
+	//afficher_tab(T);
+	assert(post_cond_select);
 }
 
 //--------------------------------------------------------------------
@@ -294,12 +337,16 @@ int main()
 	//remplir_croissant(T);
 	remplir_decroissant(T);
 	//permuter_rand(T, 100);
-	afficher_tab(T);
-	//TriSelection(T);
+	
+	//afficher_tab(T);
+	
+	TriSelection(T);
 	//TriInsertion(T);
-	TriAleatoire(T);
-	afficher_tab(T);
-	//cout << is_croissant(T) << endl;
+	//TriAleatoire(T);
+	
+	//afficher_tab(T);
+	
+	//cout << is_in_tab(T, -1) << endl;
 
 
 	return 0;
