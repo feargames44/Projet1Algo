@@ -112,28 +112,30 @@ void afficher_tab(TabEntier T)
 	}
 	cout << endl;
 }
-
-<<<<<<< HEAD
-/**
- * @brief Procédure de tri par selection
- * 
- * @b Role : -
- * 
- * @b Cadre : -
- * 
- * @pre -
- * @post -
-**/
-=======
 /*
 *********************
 *****  Partie 2 *****
 *********************
 */
-
-//--------------------------------------------------------------------
-// Procédure de tri par selection
->>>>>>> 40d16d97ab662678411a87c9cf3007829736f46d
+/**
+ * @brief Procédure de tri par selection
+ * 
+ * @b Role : Tri un tableau d'entiers par ordre croissant
+ * 
+ * @b Cadre : T : tableau d'entier
+ * 
+ * @pre -
+ * @post Soit Td = Tableau de début et Tf = Tableau de fin. On a (|Td| = |Tf|) et ( pour tout i dans 0..|T|-1, T[i] <= T[i+1] ) et ( tous les éléments présents dans Td sont présents dans Tf )
+ *
+ *@test
+ * |       Entrée      |       Sortie      | Justification | Résultat |
+ * |-------------------|-------------------|---------------|----------|
+ * |T = [1,2,4,3,0]    |T = [0,1,2,3,4]    |VOIR PLUS TARD | passe    |
+ * |T = [0,1,2,3,4]    |T = [0,1,2,3,4]    |VOIR PLUS TARD | passe    |
+ * |T = [4,3,2,1,0]    |T = [0,1,2,3,4]    |VOIR PLUS TARD | passe    |
+ * |T = []             |T = []             |0 itération    | passe    |
+ * |T = [0,1,2,3,4]    |T = [0,1,2,3,4]    |VOIR PLUS TARD | passe    |
+**/
 void TriSelection (TabEntier & T)
 {
 	unsigned i, j, min;
@@ -149,12 +151,17 @@ void TriSelection (TabEntier & T)
 				min = j;
 			}
 		}
-
+		assert(1 == 2);
 		if(min != i)
 		{
 			permuter(T, min, i);
 		}
 	}
+	// Post-conditions
+		// 1ère Post-condition
+
+	//bool post_cond_select = (  );
+	
 }
 
 //--------------------------------------------------------------------
