@@ -87,7 +87,16 @@ void afficher_tab(TabEntier T)
 	cout << endl;
 }
 
-// Procédure de tri par selection
+/**
+ * @brief Procédure de tri par selection
+ * 
+ * @b Role : -
+ * 
+ * @b Cadre : -
+ * 
+ * @pre -
+ * @post -
+**/
 void TriSelection (TabEntier & T)
 {
 	unsigned i, j, min;
@@ -148,7 +157,6 @@ void TriAleatoire(TabEntier & T)
  * @pre -
  * @post -
 **/
-
 int main()
 {
 	srand((int)time(0));   // initialisation du tirage aléatoire
