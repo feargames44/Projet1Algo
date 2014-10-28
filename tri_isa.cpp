@@ -132,6 +132,45 @@ bool is_in_tab(TabEntier T, int k)
 *****  Partie 2 *****
 *********************
 */
+
+/**
+ * @brief Fonction de test des pré et post conditions pour les algorithmes de tri
+ * 
+ * @b Role : Renvoie un boolean qui va nous dire si les algorithmes de tri vérifie les pré et post condition.
+ * 
+ * @b Cadre : T et t_debut : tableau d'entier
+ * 
+ * @pre
+ * @post 
+**/
+bool assertions_tri(TabEntier T, TabEntier t_debut, int taille_fin)
+{
+	// Post-conditions
+	unsigned int z, y;
+		// 1ère Post-condition
+	bool condition = ( N == taille_fin);
+		// 2ème Post-condition
+	
+	for(z = 0; z < N-1; z++)
+	{
+		if(T[z+1] < T[z])
+		{
+			condition = false;
+		}
+	}
+		// 3ème Post-condition
+	for (int y = 0; y < N; ++y)
+	{
+		if(!is_in_tab(t_debut, T[y]))
+		{
+			condition = false;
+		}
+	}
+	return condition;
+}
+
+
+
 /**
  * @brief Procédure de tri par selection
  * 
@@ -180,31 +219,7 @@ void TriSelection (TabEntier & T)
 			permuter(T, min, i);
 		}
 	}
-	
-	// Post-conditions
-		// 1ère Post-condition
-	bool post_cond_select = ( N == sizeof(T)/sizeof(T[0]) );
-		// 2ème condition
-	unsigned int z;
-	for(z = 0; z < N-1; z++)
-	{
-		if(T[z+1] < T[z])
-		{
-			post_cond_select = false;
-		}
-	}
-		// 3ème condition
-	unsigned int y;
-	for (int y = 0; y < N; ++y)
-	{
-		if(!is_in_tab(t_debut, T[y]))
-		{
-			post_cond_select = false;
-		}
-	}
-	//afficher_tab(t_debut);
-	//afficher_tab(T);
-	assert(post_cond_select);
+	assert(assertions_tri(T, t_debut, sizeof(T)/sizeof(T[0])));
 }
 
 //--------------------------------------------------------------------
