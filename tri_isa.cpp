@@ -3,7 +3,7 @@
 <<<<<<< HEAD
  * @author GIRARD Laurent et LE FALHUN Mattis
  * @date 
- * @brief bonjour
+ * @brief
 =======
  * @author
  * @date
